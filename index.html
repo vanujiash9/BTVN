@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      tr, td{
+                border: 1px solid black
+                
+            }
+        
+     .body{
+        border: 1px solid black;
+        width: 500px;
+        height: 200px;
+     }
+      
+     .table1{
+        display: flex;
+        justify-content: center;
+        
+     }
+     .num3{
+        display: flex;
+        justify-content: center;
+     }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="body">
+<h1 style="text-align: center;">Kết quả cuối năm học</h1> 
+<div class="table1">
+    <table>
+        <tr>
+            <div class="num1">
+            <td>Điểm trung bình</td>
+            <td><input type="input" id="diemTrungBinh"></td>
+            </div>
+
+
+        </tr>
+        <tr>
+            <div class="num2">
+            <td>Kết quả</td>
+            <td><input type="text" id="ketQua"></td>
+           </div>
+
+        </tr>
+        <tr>
+            <div class="num3">
+            <td colspan="2"><button style="margin-left: 98px;" onclick="thayDoiDiem()">Xuất kết quả</button></td>
+            </div>
+        </tr>
+    </table>
+</div>
+    </form>
+</div>
+
+<script>
+    function thayDoiDiem(){
+        let diemTrungBinhInput = document.getElementById('diemTrungBinh')
+        let diemTrungBinh = parseFloat(diemTrungBinhInput.value)
+        let ketQuaInput = document.getElementById('ketQua')
+        if( diemTrungBinh < 0 || diemTrungBinh > 10){
+            ketQuaInput.value = " Nhập lại điểm bé hơn 10 lớn hơn 0"
+        }
+        else if( diemTrungBinh < 5){
+            ketQuaInput.value = " Ở lại lớp"
+        }
+        else{
+            ketQuaInput.value =" Được lên lớp"
+        }
+    }
+</script>
+</body>
+</html> -->
+
+
+<!-- bài 4 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+            background-color: greenyellow;
+        }
+        .body {
+            width: 50%;
+            margin: auto; 
+            border: 1px solid black;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <form>
+            <h1 style="text-align: center;">Xếp loại cuối năm học</h1>
+            <table>
+                <tr>
+                    <td>Điểm trung bình HK1: </td>
+                    <td><input type="number" id="dtbHK1"></td>
+                </tr>
+                <tr>
+                    <td>Điểm trung bình HK2: </td>
+                    <td><input type="number" id="dtbHK2"></td>
+                </tr>
+                <tr>
+                    <td>Điểm trung bình cuối năm: </td>
+                    <td><input type="number" id="dtbCN" disabled></td>
+                </tr>
+                <tr>
+                    <td>Xếp loại: </td>
+                    <td><input type="text" id="xepLoai" disabled></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button onclick="xuatXepLoai()" style="margin-left: 130px;">Xuất xếp loại</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        function xuatXepLoai() {
+            let dtb1Input = document.getElementById('dtbHK1');
+            let dtbHK1 = parseFloat(dtb1Input.value);
+            let dtb2Input = document.getElementById('dtbHK2');
+            let dtbHK2 = parseFloat(dtb2Input.value);
+            let dtbCNInput = document.getElementById('dtbCN');
+            let ketQuaInput = document.getElementById('xepLoai');
+            
+            if (dtbHK1 > 10 || dtbHK1 < 0 || dtbHK2 > 10 || dtbHK2 < 0) {
+                ketQuaInput.value = "Nhập lại điểm bé hơn 10 và lớn hơn 0";
+                dtbCNInput.value = "";
+            } else {
+                let dtbCN = (dtbHK1 + dtbHK2 * 2) / 3;
+
+                if (dtbCN >= 9) {
+                    ketQuaInput.value = "Giỏi";
+                } else if (dtbCN >= 7) {
+                    ketQuaInput.value = "Khá";
+                } else if (dtbCN >= 5) {
+                    ketQuaInput.value = "Trung bình";
+                } else {
+                    ketQuaInput.value = "Yếu";
+                }
+            }
+        }
+    </script>
+</body>
+</html> 
+
+
